@@ -6,6 +6,16 @@ import { clampScore } from "./services/ioc";
 type CensysService = { service_name?: string; port?: number };
 type CensysResponse = { result?: { location?: { country_code?: string }; autonomous_system?: { asn?: number; name?: string }; services?: CensysService[]; labels?: string[]; last_updated_at?: string } };
 
+function buildCensysAuthHeaders(): Record<string, string> {
+  const apiKey = process.env.CENSYS_API_KEY;
+  if (apiKey) return { Authorization: "Bearer " + apiKey };
+
+  const id = process.env.CENSYS_API_ID;
+  const secret = process.env.CENSYS_API_SECRET;
+  if (!id || !secret) throw new Error("CENSYS_API_KEY or CENSYS_API_ID/CENSYS_API_SECRET not configured");
+  return { Authorization: "Basic " + Buffer.from(id + ":" + secret).toString("base64") };
+}
+
 export class CensysProvider extends BaseProvider {
   readonly id = "censys";
   readonly name = "Censys";
@@ -13,17 +23,13 @@ export class CensysProvider extends BaseProvider {
   readonly supportedTypes: IocType[] = ["ip"];
 
   isConfigured(): boolean {
-    return Boolean(process.env.CENSYS_API_ID && process.env.CENSYS_API_SECRET);
+    return Boolean(process.env.CENSYS_API_KEY || (process.env.CENSYS_API_ID && process.env.CENSYS_API_SECRET));
   }
 
   async analyze(query: Required<IocQuery>, signal: AbortSignal): Promise<NormalizedThreatResult> {
     const started = Date.now();
     try {
-      const id = process.env.CENSYS_API_ID;
-      const secret = process.env.CENSYS_API_SECRET;
-      if (!id || !secret) throw new Error("CENSYS_API_ID/CENSYS_API_SECRET not configured");
-      const token = Buffer.from(id + ":" + secret).toString("base64");
-      const data = await requestJson<CensysResponse>("https://search.censys.io/api/v2/hosts/" + encodeURIComponent(query.value), { signal, headers: { Authorization: "Basic " + token } });
+      const data = await requestJson<CensysResponse>("https://search.censys.io/api/v2/hosts/" + encodeURIComponent(query.value), { signal, headers: buildCensysAuthHeaders() });
       const resultData = data.result ?? {};
       const serviceCount = resultData.services?.length ?? 0;
       const riskScore = clampScore(serviceCount * 8 + (resultData.labels?.includes("malware") ? 50 : 0));

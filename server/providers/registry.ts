@@ -6,6 +6,7 @@ import { URLScanProvider } from "./URLScanProvider";
 import { GreyNoiseProvider } from "./GreyNoiseProvider";
 import { ShodanProvider } from "./ShodanProvider";
 import { CensysProvider } from "./CensysProvider";
+import { PhishingHeuristicsProvider } from "./PhishingHeuristicsProvider";
 
 const providers: ThreatIntelProvider[] = [
   new VirusTotalProvider(),
@@ -15,6 +16,7 @@ const providers: ThreatIntelProvider[] = [
   new GreyNoiseProvider(),
   new ShodanProvider(),
   new CensysProvider(),
+  new PhishingHeuristicsProvider(),
 ];
 
 export function getThreatIntelProviders(): ThreatIntelProvider[] {
