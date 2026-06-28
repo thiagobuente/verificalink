@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield } from 'lucide-react';
+import { Database, Lock, Shield, Zap } from 'lucide-react';
 import { InstallPWAButton } from './InstallPWAButton';
 
 const heroStyles = `

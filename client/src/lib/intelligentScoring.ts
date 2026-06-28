@@ -92,8 +92,10 @@ export function calcularScoreInteligente(
   }
   ameacasGoogle = Array.isArray(ameacasGoogle) ? ameacasGoogle : [];
   palavrasSuspeitas = Array.isArray(palavrasSuspeitas) ? palavrasSuspeitas : [];
+  let explicitSignals: Record<string, any> = {};
   if (typeof hostname !== "string") {
     const signals = hostname;
+    explicitSignals = signals;
     hostname = new URL(url).hostname;
     urlLonga = signals.urlLonga ?? urlLonga;
     muitosSubdominios = signals.muitosSubdominios ?? muitosSubdominios;
@@ -110,7 +112,6 @@ export function calcularScoreInteligente(
 
   const ehConfiavel = ehDominioConfiavel(hostname);
   const urlObj = new URL(url);
-  const explicitSignals = typeof signals !== "string" ? signals as Record<string, any> : {};
   const typosquattingDetectado = Boolean(explicitSignals.typosquatting) || detectTyposquatting(hostname);
   const encurtadorDetectado = Boolean(explicitSignals.encurtador) || isShortener(hostname);
   const tldSuspeitoDetectado = Boolean(explicitSignals.tldSuspeito);
