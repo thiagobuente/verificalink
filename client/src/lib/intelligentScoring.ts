@@ -110,7 +110,7 @@ export function calcularScoreInteligente(
 
   const ehConfiavel = ehDominioConfiavel(hostname);
   const urlObj = new URL(url);
-  const explicitSignals = typeof arguments[1] !== "string" ? arguments[1] as Record<string, any> : {};
+  const explicitSignals = typeof signals !== "string" ? signals as Record<string, any> : {};
   const typosquattingDetectado = Boolean(explicitSignals.typosquatting) || detectTyposquatting(hostname);
   const encurtadorDetectado = Boolean(explicitSignals.encurtador) || isShortener(hostname);
   const tldSuspeitoDetectado = Boolean(explicitSignals.tldSuspeito);
@@ -267,3 +267,4 @@ export function calcularScoreInteligente(
     scoreReputacao: ehConfiavel ? 0 : scoreReputacao
   };
 }
+
