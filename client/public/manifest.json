@@ -1,0 +1,100 @@
+{
+  "name": "Shield Security Scanner - Threat Intelligence e Protecao Digital",
+  "short_name": "Shield Security",
+  "description": "Shield Security Scanner: plataforma SOC e Threat Intelligence para analise de links, PDFs, arquivos, e-mails, QR Codes e IOCs suspeitos.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0B1020",
+  "theme_color": "#00D4FF",
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%230B1020' width='540' height='720'/><text x='50%' y='50%' font-size='48' fill='%2300D4FF' text-anchor='middle' dominant-baseline='middle' font-family='Arial'>Shield Security</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720'><rect fill='%230B1020' width='1280' height='720'/><text x='50%' y='50%' font-size='72' fill='%2300D4FF' text-anchor='middle' dominant-baseline='middle' font-family='Arial'>Shield Security</text></svg>",
+      "sizes": "1280x720",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230B1020' width='192' height='192' rx='45'/><circle cx='96' cy='96' r='70' fill='none' stroke='%2300D4FF' stroke-width='4'/><circle cx='96' cy='96' r='50' fill='none' stroke='%2300FF9D' stroke-width='2'/><path d='M 96 56 L 116 76 L 96 96 L 76 76 Z' fill='%2300D4FF'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230B1020' width='192' height='192' rx='45'/><circle cx='96' cy='96' r='70' fill='none' stroke='%2300D4FF' stroke-width='4'/><circle cx='96' cy='96' r='50' fill='none' stroke='%2300FF9D' stroke-width='2'/><path d='M 96 56 L 116 76 L 96 96 L 76 76 Z' fill='%2300D4FF'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%230B1020' width='512' height='512' rx='120'/><circle cx='256' cy='256' r='180' fill='none' stroke='%2300D4FF' stroke-width='12'/><circle cx='256' cy='256' r='130' fill='none' stroke='%2300FF9D' stroke-width='6'/><path d='M 256 146 L 306 196 L 256 246 L 206 196 Z' fill='%2300D4FF'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Analisar Link",
+      "short_name": "Link",
+      "description": "Analisar se um link é seguro ou golpe",
+      "url": "/?tab=link",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%2300D4FF' width='96' height='96' rx='20'/><text x='48' y='48' font-size='60' fill='%230B1020' text-anchor='middle' dominant-baseline='middle'>🔗</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Analisar Email",
+      "short_name": "Email",
+      "description": "Analisar se um email é phishing",
+      "url": "/?tab=email",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%2300D4FF' width='96' height='96' rx='20'/><text x='48' y='48' font-size='60' fill='%230B1020' text-anchor='middle' dominant-baseline='middle'>📧</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Analisar Mensagem",
+      "short_name": "Mensagem",
+      "description": "Analisar se uma mensagem é golpe",
+      "url": "/?tab=message",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%2300D4FF' width='96' height='96' rx='20'/><text x='48' y='48' font-size='60' fill='%230B1020' text-anchor='middle' dominant-baseline='middle'>💬</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

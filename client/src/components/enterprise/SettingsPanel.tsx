@@ -1,0 +1,8 @@
+import { Settings } from "lucide-react";
+import { Badge, Card, CardContent, CardHeader, CardTitle, Input, Section } from "@/components/base";
+import { ThemeSwitcher } from "@/components/soc/ThemeSwitcher";
+import { threatIntelPlugins } from "@/plugins/threat-intel/registry";
+
+export function SettingsPanel() {
+  return <div className="space-y-6"><Section title="Settings" description="Preferências, idioma, tema, atualização automática e integrações." /><div className="grid gap-6 xl:grid-cols-2"><Card><CardHeader><CardTitle className="flex items-center gap-2"><Settings className="size-5 text-cyan-300" />Preferências</CardTitle></CardHeader><CardContent className="space-y-4"><Input label="Idioma" value="Português (Brasil)" readOnly /><div><p className="mb-2 text-sm font-semibold text-slate-200">Tema</p><ThemeSwitcher /></div><label className="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-950/50 p-3"><span><span className="block text-sm font-semibold text-slate-100">Atualização automática</span><span className="text-xs text-slate-500">Atualizar KPIs e painéis live</span></span><input type="checkbox" defaultChecked /></label></CardContent></Card><Card><CardHeader><CardTitle>Integrações</CardTitle></CardHeader><CardContent className="space-y-3">{threatIntelPlugins.map((plugin) => <div key={plugin.id} className="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-950/50 p-3"><div><p className="font-semibold text-slate-100">{plugin.name}</p><p className="text-xs text-slate-500">{plugin.vendor}</p></div><Badge tone={plugin.enabled ? "success" : "neutral"}>{plugin.enabled ? "enabled" : "disabled"}</Badge></div>)}</CardContent></Card></div></div>;
+}

@@ -1,0 +1,1 @@
+export function dedupeIncidents<T extends { incidentId?: string; id?: string }>(incidents: T[]): T[] { const map = new Map<string, T>(); for (const incident of incidents) map.set(incident.incidentId ?? incident.id ?? JSON.stringify(incident), { ...(map.get(incident.incidentId ?? incident.id ?? "") ?? {}), ...incident }); return [...map.values()]; }

@@ -1,0 +1,1 @@
+export function scanTypeDrift(source: string) { return { explicitAny: (source.match(/:\s*any\b/g) ?? []).length, unsafeUndefinedAccess: (source.match(/\.\w+\.\w+/g) ?? []).length, warnings: [] as string[] }; }

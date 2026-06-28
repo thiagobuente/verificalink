@@ -1,0 +1,1 @@
+export function scanCommandCenterPayload(payload: unknown) { const text = JSON.stringify(payload); const leaks = [/"raw"\s*:/i, /api[_-]?key/i, /secret/i].filter((pattern) => pattern.test(text)); return { safe: leaks.length === 0, leaks: leaks.map((item) => item.source) }; }

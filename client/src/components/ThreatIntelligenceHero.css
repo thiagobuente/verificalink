@@ -1,0 +1,225 @@
+/* HERO WRAPPER - Background e efeitos */
+.hero-wrapper {
+  width: 100%;
+  background: linear-gradient(to bottom right, #0f172a, #0f1419, #0f172a);
+  position: relative;
+  overflow: hidden;
+  padding: 48px 24px;
+}
+
+/* Background Grid */
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: 
+    linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Glow Effects */
+.hero-glow {
+  position: absolute;
+  border-radius: 9999px;
+  mix-blend-mode: multiply;
+  filter: blur(96px);
+  opacity: 0.05;
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.hero-glow-top {
+  top: 0;
+  right: 0;
+  width: 384px;
+  height: 384px;
+  background-color: #06b6d4;
+}
+
+.hero-glow-bottom {
+  bottom: 0;
+  left: 0;
+  width: 384px;
+  height: 384px;
+  background-color: #3b82f6;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.1; }
+}
+
+/* HERO CONTAINER - Main layout */
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  gap: 32px;
+}
+
+/* HERO BRAND - Logo + Title */
+.hero-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.hero-logo {
+  width: 90px;
+  max-width: 90px;
+  height: auto;
+  color: #06b6d4;
+  flex-shrink: 0;
+}
+
+.hero-title {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 800;
+  color: #06b6d4;
+  line-height: 1.2;
+}
+
+/* HERO SUBTITLE */
+.hero-subtitle {
+  color: #d1d5db;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  margin: 0;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* HERO CARD */
+.hero-card {
+  width: 100%;
+  max-width: 800px;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(to right, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1));
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 8px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 20px 25px -5px rgba(6, 182, 212, 0.2);
+}
+
+.hero-card-icon {
+  color: #06b6d4;
+  flex-shrink: 0;
+}
+
+.hero-card-text {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* HERO LOGO LARGE */
+.hero-logo-large-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-logo-large {
+  width: 280px;
+  height: 280px;
+  color: rgba(6, 182, 212, 0.4);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    padding: 32px 16px;
+  }
+
+  .hero-container {
+    gap: 24px;
+  }
+
+  .hero-brand {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-logo {
+    width: 80px;
+    max-width: 80px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .hero-card {
+    padding: 16px 20px;
+    gap: 8px;
+  }
+
+  .hero-card-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-card-text {
+    font-size: 0.875rem;
+  }
+
+  .hero-logo-large {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-glow {
+    width: 256px !important;
+    height: 256px !important;
+  }
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+  .hero-wrapper {
+    padding: 24px 12px;
+  }
+
+  .hero-container {
+    gap: 16px;
+  }
+
+  .hero-logo {
+    width: 70px;
+    max-width: 70px;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .hero-card {
+    padding: 12px 16px;
+  }
+
+  .hero-logo-large {
+    width: 160px;
+    height: 160px;
+  }
+}

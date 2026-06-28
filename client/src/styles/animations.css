@@ -1,0 +1,230 @@
+/* ============================================
+   SCROLL ANIMATIONS - Fade In & Slide In
+   ============================================ */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Down Animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Left Animation */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade In Right Animation */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide In Up Animation */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bounce In Animation */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   ANIMATION CLASSES
+   ============================================ */
+
+/* Fade In */
+.fade-in-on-scroll {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-on-scroll.visible {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Fade In Up */
+.fade-in-up-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-in-up-on-scroll.visible {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Fade In Down */
+.fade-in-down-on-scroll {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.fade-in-down-on-scroll.visible {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+/* Fade In Left */
+.fade-in-left-on-scroll {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-in-left-on-scroll.visible {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+/* Fade In Right */
+.fade-in-right-on-scroll {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.fade-in-right-on-scroll.visible {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+/* Scale In */
+.scale-in-on-scroll {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.scale-in-on-scroll.visible {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+/* Slide In Up */
+.slide-in-up-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.slide-in-up-on-scroll.visible {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+/* Bounce In */
+.bounce-in-on-scroll {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.bounce-in-on-scroll.visible {
+  animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* ============================================
+   STAGGER ANIMATIONS - Para múltiplos elementos
+   ============================================ */
+
+.stagger-item {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* ============================================
+   PARALLAX EFFECT
+   ============================================ */
+
+.parallax-container {
+  perspective: 1000px;
+}
+
+.parallax-element {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* ============================================
+   PREFERS REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
